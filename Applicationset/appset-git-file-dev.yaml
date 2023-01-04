@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-test
+spec:
+  generators:
+  - git:
+      repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/argocd.git'
+      revision: HEAD
+      files:
+      - path: "Applicationset/eks-info/**/config.json"
+      # - path: "charts/Argocd/Applicationset/dev/*-config.json"
+
+  template:
+    metadata:
+      name: 'apps-{{path.basename}}-{{cluster.name}}-test'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/internal.git'
+        targetRevision: HEAD
+        path: "charts/project/{{cluster.service}}"
+        helm:
+          valueFiles:
+            - values-{{path.basename}}.yaml
+      destination:
+        server: '{{cluster.address}}'
+        namespace: '{{cluster.name}}-apps-git-files-test'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

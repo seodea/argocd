@@ -1,0 +1,53 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: canary-ingress
+  labels:
+    env: dev
+    app: A
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/subnets: subnet-01925fe3fdb467412,subnet-0183b83ada5e17406
+    alb.ingress.kubernetes.io/security-groups: sg-05da8f99ad01efcdb
+    kubernetes.io/ingress.class: alb
+spec:
+  rules:
+    - host: stable.seodae.tk
+      http: 
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: stable-service
+                port:
+                  number: 80
+    - host: canary.seodae.tk
+      http: 
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: canary-service
+                port:
+                  number: 80    
+    - host: www.seodae.tk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: root-service
+                port:
+                  name: use-annotation
+                  # number: 80
+          - path: /canary
+            pathType: Prefix
+            backend:
+              service:
+                name: canary-service
+                port:
+                  number: 80

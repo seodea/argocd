@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-demo
+  # Add a this finalizer ONLY if you want these to cascade delete.
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd # (OK) App of Apps의 Parent Application의 경우 Argocd namespace 사용해야됨
+    server: >-
+      https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
+  source:
+    path: App-of-Apps/apps/ # Child Application yaml 파일이 있는 경로 지정
+    repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/argocd.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    # automated: 
+    #     prune: true
+    syncOptions:
+      - CreateNamespace=true

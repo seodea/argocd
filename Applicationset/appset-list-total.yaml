@@ -1,0 +1,45 @@
+#Applicationset-list is working
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-demo
+spec:
+  generators:
+  - list:
+      elements:
+      - prefix: argocd-eks
+        url: https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
+        svc: svc-guestbook
+        environment: dev
+        svc-name: guestbook
+      - prefix: dev-eks
+        url: https://B2AFF69ED0F24896B2203650908FD6F3.gr7.ap-northeast-2.eks.amazonaws.com
+        svc: svc-echoserver
+        environment: dev
+        svc-name: nginx
+      # - prefix: c-eks
+      #   url: https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
+      #   svc: A-service
+      #   environment: dev
+  template:
+    metadata:
+      name: '{{prefix}}-{{svc-name}}-appset'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/internal.git'
+        targetRevision: HEAD
+        path: charts/project/{{svc}}
+        helm:
+          valueFiles:
+            - values-{{environment}}.yaml
+      destination:
+        server: '{{url}}'
+        namespace: '{{prefix}}-{{svc-name}}-appset'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        # automated:
+        #   prune: true
+        #   selfHeal: true

@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-cluster-test
+spec:
+  generators:
+  - clusters: # Automatically use all clusters defined within Argo CD if you don't fill cluster in.
+      selector:
+        matchLabels:
+          env: dev
+          argocd.argoproj.io/secret-type: cluster
+      # A key-value map for arbitrary parameters
+      values:
+        revision: HEAD # staging clusters use HEAD branch
+        env: dev
+        service: svc-echoserver
+
+  template:
+    metadata:
+      name: 'apps-{{name}}-generator-cluster-test' # 'name' field of the secret
+    spec:
+      project: default
+      source: # subchart 경로
+        repoURL: https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/internal.git
+        targetRevision: '{{values.revision}}'
+        path: 'charts/project/{{values.service}}'
+        helm:
+          valueFiles:
+            - values-{{values.env}}.yaml
+      destination:
+        server: '{{server}}' # 'server' field of the secret
+        namespace: '{{name}}-apps-git-files-test' # 'name' field of the secret
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
