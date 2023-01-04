@@ -1,6 +1,0 @@
-aws_account: bbbbb
-asset_id: 11223344
-cluster.name: b-eks
-cluster.env: dev
-cluster.address: https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
-cluster.service: svc-guestbook

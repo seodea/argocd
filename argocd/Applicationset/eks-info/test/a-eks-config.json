@@ -1,6 +1,0 @@
-aws_account: aaaaa
-asset_id: 11223344
-cluster.name: a-eks
-cluster.env: dev
-cluster.address: https://B2AFF69ED0F24896B2203650908FD6F3.gr7.ap-northeast-2.eks.amazonaws.com
-cluster.service: svc-echoserver
