@@ -13,8 +13,9 @@ file 구조 :
 ```sh
 Applicationset/
 ├── Readme.md
-├── appset-cluster-dev.yaml
-├── appset-git-file-dev.yaml 
+├── appset-cluster-dev.yaml # eks-info folder에 있는 config.json 파일을 참고하여 모든 환경의 EKS에 서비스 배포
+├── appset-git-file-dev.yaml # eks-info folder에 있는 dev폴더의 config.json 파일만 참고하여 모든 환경의 EKS에 서비스 배포
+├── appset-git-file-all.yaml # eks-info folder에 있는 config.json 파일을 참고하여 모든 환경의 EKS에 서비스 배포
 ├── appset-list-total.yaml # 용도에 따라서, dev용으로만 사용 가능
 ├── dev # git-file 테스트 
 │   ├── a-config.json

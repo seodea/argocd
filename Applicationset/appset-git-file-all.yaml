@@ -8,7 +8,8 @@ spec:
       repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/argocd.git'
       revision: HEAD
       files:
-      - path: "charts/Argocd/Applicationset/eks-info/dev/*-config.json"
+      - path: "Applicationset/eks-info/**/config.json"
+      # - path: "charts/Argocd/Applicationset/dev/*-config.json"
 
   template:
     metadata:
