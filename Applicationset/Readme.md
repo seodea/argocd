@@ -1,7 +1,6 @@
 # ApplicationSet 사용을 위한 테스트 manifest
 
 원하는 서비스를 원하는 Cluster에 배포하기위한 방식으로 ApplicationSet을 사용하면 조금더 편합니다.
-
 App of apps보다 조금더 자유롭게 사용이 가능하며, 디렉토리 구조 및 manifest가 조금더 간단해 질수있습니다.
 
 ## 목표 
@@ -31,6 +30,17 @@ Applicationset/
         └── a-eks-config.json
         └── b-eks-config.json
 ```
+## ApplicationSet 사용 방법
+ApplicationSet의 경우 Argo CD Console에서 application yaml 파일을 사용하여 배포가 불가능 합니다.
+Argo CD cli를 이용해서 git or cluster or list에 대한 application yaml을 배포를 해야 합니다.
+자세한 배포 방식은 아래 참고 바랍니다.
+
+## 사전 준비
+- Argo CD cli 설치
+- Argo CD login 진행
+    ```
+    argocd login '{Argo CD URl}'  --username '{계정}' --password '{사용자 암호}' --insecure
+    ```
 
 ## ApplicationSet generators - git
 - git에는 files, directory 2가지 종류 제공

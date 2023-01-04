@@ -14,7 +14,8 @@ spec:
         environment: dev
         svc-name: guestbook
       - prefix: dev-eks
-        url: https://B2AFF69ED0F24896B2203650908FD6F3.gr7.ap-northeast-2.eks.amazonaws.com
+        url: https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
+        # url: https://B2AFF69ED0F24896B2203650908FD6F3.gr7.ap-northeast-2.eks.amazonaws.com
         svc: svc-echoserver
         environment: dev
         svc-name: nginx
