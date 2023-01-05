@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout # Rollout으로 생성
+metadata:
+  name: bluegreen-rollout
+spec:
+  replicas: 4
+  #revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: bluegreen
+  template:
+    metadata:
+      labels:
+        app: bluegreen
+    spec:
+      containers:
+      - name: bluegreen-rollouts-demo
+        image: particule/simplecolorapi:2.0 # 1.0 = red , 2.0 = blue, 3.0 = black
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+  # 이 부분에서 카나리로 지정
+  strategy:
+    blueGreen:
+      # activeService는 이전의 배포된 Blue 서비스
+      activeService : active-service
+      
+      # previewService는 새롭게 배포될 Green 서비스
+      previewService : preview-service
+      
+      # autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
+      autoPromotionEnabled : false
