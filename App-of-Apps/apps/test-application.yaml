@@ -11,8 +11,8 @@ spec:
     server: >-
       https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
   source:
-    path: charts/project/svc-guestbook # Child Application yaml 파일이 있는 경로 지정
-    repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/internal.git'
+    path: charts/App-of-Apps/charts/dev-web # Child Application yaml 파일이 있는 경로 지정
+    repoURL: 'https://github.com/seodea/helm-subchart.git'
     targetRevision: HEAD
     helm:
       valueFiles:
