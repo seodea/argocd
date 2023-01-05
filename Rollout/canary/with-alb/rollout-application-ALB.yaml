@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: '' # name과 server는 동시에 사용 불가능
-    namespace: aws-alb-rollout-canary
+    namespace: rollout-canary
     server: >-
       https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
   source:
