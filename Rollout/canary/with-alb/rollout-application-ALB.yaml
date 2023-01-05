@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aws-alb-rollout-canary
+  name: rollout-canary
 spec:
   destination:
     name: '' # name과 server는 동시에 사용 불가능
