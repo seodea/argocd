@@ -1,22 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-application # 원하는 이름
+  name: prod-echoserver-application # 원하는 이름
   # Add a this finalizer ONLY if you want these to cascade delete.
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: app-of-apps-demo-test # (OK)
+    namespace: app-of-apps-demo-prod # (OK)
     server: >-
       https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
   source:
-    path: App-of-Apps/charts/test-web # Child Application yaml 파일이 있는 경로 지정
-    repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/argocd.git'
+    path: charts/project/svc-echoserver # Child Application yaml 파일이 있는 경로 지정
+    repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/internal.git'
     targetRevision: HEAD
     helm:
       valueFiles:
-        - values-test.yaml
+        - values-prod.yaml
   project: default
   syncPolicy:
     # automated: 
