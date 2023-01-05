@@ -9,8 +9,8 @@ spec:
     server: >-
       https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
   source:
-    path: charts/Argocd/Rollout/canary/with-alb
-    repoURL: 'https://github.com/seodea/helm-subchart.git'
+    path: Rollout/canary/with-alb
+    repoURL: 'https://gitlab.mzcloud.xyz/ctc/truefriend/korea-investment/argocd.git'
     targetRevision: HEAD
   project: default
   syncPolicy:
