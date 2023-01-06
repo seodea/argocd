@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-echoserver-application # 원하는 이름
+  name: test-echoserver-app-of-apps # 원하는 이름
   # Add a this finalizer ONLY if you want these to cascade delete.
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io

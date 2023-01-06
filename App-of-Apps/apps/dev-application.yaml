@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev-echoserver-application # 원하는 이름
+  name: dev-echoserver-app-of-apps # 원하는 이름
   # Add a this finalizer ONLY if you want these to cascade delete.
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: argocd #(OK)
+    namespace: app-of-apps-demo-prod # (OK)
     server: >-
       https://D98A689AE1B38EBE81042D57E31C9785.sk1.ap-northeast-2.eks.amazonaws.com
   source:
