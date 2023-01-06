@@ -18,7 +18,7 @@ spec:
         image: wotnek90/blue-green:blue # tag is bule or green
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 80
   # 이 부분에서 카나리로 지정
   strategy:
     blueGreen:
