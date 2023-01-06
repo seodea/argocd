@@ -30,3 +30,10 @@ spec:
                 name: preview-service
                 port:
                   number: 80
+          - path: /
+            pathType: Exact
+            backend:
+              service:
+                name: active-service
+                port:
+                  number: 80
