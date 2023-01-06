@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-rollouts-demo
-        image: particule/simplecolorapi:1.0 # 1.0 = red , 2.0 = blue, 3.0 = black
+        image: nginx-hello:blue # tag is bule or green
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
