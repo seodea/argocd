@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-rollouts-demo
-        image: wotnek90/blue-green:blue.v1 # tag is bule.v1 or green.v1
+        image: wotnek90/blue-green:green.v1 # tag is bule.v1 or green.v1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -31,4 +31,4 @@ spec:
       previewService : preview-service
       
       # autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
-      autoPromotionEnabled : false
+      autoPromotionEnabled : true
