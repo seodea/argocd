@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-rollouts-demo
-        image: thekoguryo/nginx-hello:blue # tag is bule or green
+        image: nginx:latest # tag is bule or green
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
