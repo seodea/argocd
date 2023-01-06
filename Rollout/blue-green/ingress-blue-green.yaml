@@ -4,7 +4,7 @@ metadata:
   name: blue-green-ingress
   labels:
     env: dev
-    app: simplecolorapi
+    app: blue-green-test
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     # alb.ingress.kubernetes.io/target-type: ip
@@ -16,20 +16,20 @@ spec:
     - host:
       http:
         paths:
-          # - path: /blue
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: active-service
-          #       port:
-          #         number: 80
-          - path: /green
+          - path: /blue
             pathType: Prefix
             backend:
               service:
                 name: preview-service
                 port:
                   number: 80
+          # - path: /green
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: preview-service
+          #       port:
+          #         number: 80
           - path: /
             pathType: Exact
             backend:

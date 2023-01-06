@@ -17,11 +17,11 @@ spec:
     spec:
       containers:
       - name: bluegreen-rollouts-demo
-        image: wotnek90/blue-green:green # tag is bule or green
+        image: wotnek90/blue-green:blue # tag is bule or green
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-  # 이 부분에서 카나리로 지정
+  # 이 부분에서 blue/green으로 지정
   strategy:
     blueGreen:
       # activeService는 이전의 배포된 Blue 서비스
