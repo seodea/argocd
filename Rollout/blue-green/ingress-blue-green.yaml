@@ -12,7 +12,8 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: sg-05da8f99ad01efcdb
     kubernetes.io/ingress.class: alb
 spec:
-    host:
+  rules:
+    - host:
       http:
         paths:
           - path: /blue
