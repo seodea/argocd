@@ -34,6 +34,6 @@ spec:
             pathType: Exact
             backend:
               service:
-                name: active-service
+                name: preview-service
                 port:
                   number: 80
