@@ -17,19 +17,19 @@ spec:
       http:
         paths:
           # - path: /blue
-          #   pathType: Exact
+          #   pathType: Prefix
           #   backend:
           #     service:
           #       name: preview-service
           #       port:
           #         number: 80
-          - path: /green
-            pathType: Exact
-            backend:
-              service:
-                name: preview-service
-                port:
-                  number: 80
+          # - path: /green
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: preview-service
+          #       port:
+          #         number: 80
           - path: /
             pathType: Prefix
             backend:
