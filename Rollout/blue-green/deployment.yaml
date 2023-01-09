@@ -32,4 +32,4 @@ spec:
       
       # autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
       autoPromotionEnabled : true
-      # scaleDownDelaySeconds : 300 # default 30s
+      scaleDownDelaySeconds : 300 # default 30s

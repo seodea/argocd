@@ -16,20 +16,6 @@ spec:
     - host:
       http:
         paths:
-          # - path: /blue
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: preview-service
-          #       port:
-          #         number: 80
-          # - path: /green
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: preview-service
-          #       port:
-          #         number: 80
           - path: /
             pathType: Prefix
             backend:
