@@ -9,6 +9,7 @@ Argo CD에서 제공하는 Rollouts 중 Canary 배포를 사용하는 예시 코
 # 사용방법
 
 `rollout-application-ALB.yaml`를 사용하여 console에서 Application을 생성을 합니다.
+> `steps.setCanaryScale`을 설정을 하게 되면, setWeight에선 pods 증가 없이 traffic 비율만 진행합니다.
 
 ## 생성되는 서비스
 
