@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: canary-rollouts-demo
-        image: particule/simplecolorapi:1.0 # 1.0 = red , 2.0 = blue, 3.0 = black
+        image: particule/simplecolorapi:2.0 # 1.0 = red , 2.0 = blue, 3.0 = black
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
@@ -51,6 +51,7 @@ spec:
       steps:
       - setCanaryScale:
           replicas: 4 # spec.replicas와 동일한 비율로 기입
+      - pause: {} 
 
       # steps:
       # # 1 canary pod (10% of spec.replicas)
