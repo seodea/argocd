@@ -44,13 +44,18 @@ spec:
       # - setWeight: 20    # 두 번째 canary 배포 전략 + 총 수량의 30%로 Canary pod로 traffic 전달
       # - pause: { duration: 2m }
       # - setWeight: 30    # 세 번째 canary 배포 전략 + 총 수량의 50%로 Canary pod로 traffic 전달
-      # # - pause: { duration: 5m }
+      # - pause: { duration: 5m }
       # - pause: {} # 무기한 일시정지 진행
 
       # Canarry의 Traffic 비율 조정을 이용하여 Blue/Green과 같이 사용
       steps:
       - setCanaryScale:
           replicas: 4 # spec.replicas와 동일한 비율로 기입
+      - setWeight: 10
+      - pause: { duration: 1m } 
+      - setWeight: 30
+      - pause: { duration: 1m } 
+      - setWeight: 70
       - pause: {} 
 
       # steps:
