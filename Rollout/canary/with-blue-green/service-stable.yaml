@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: stable-with-blue-green-service
+spec:
+  selector:
+    app: canary
+    demo: canary-with-blue-green
+  ports:
+  - protocol: TCP
+    port: 80
+  type: NodePort
