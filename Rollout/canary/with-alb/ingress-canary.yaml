@@ -1,25 +1,25 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: canary-demo-ingress
-  labels:
-    env: dev
-    app: A
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    #alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/subnets: subnet-01925fe3fdb467412,subnet-0183b83ada5e17406
-    alb.ingress.kubernetes.io/security-groups: sg-05da8f99ad01efcdb
-    kubernetes.io/ingress.class: alb
-spec:
-  rules:
-    - host: canary-demo.seodae.tk
-      http: 
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: canary-service
-                port:
-                  number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: canary-demo-ingress
+#   labels:
+#     env: dev
+#     app: A
+#   annotations:
+#     alb.ingress.kubernetes.io/scheme: internet-facing
+#     alb.ingress.kubernetes.io/target-type: ip
+#     alb.ingress.kubernetes.io/subnets: subnet-01925fe3fdb467412,subnet-0183b83ada5e17406
+#     alb.ingress.kubernetes.io/security-groups: sg-05da8f99ad01efcdb
+#     kubernetes.io/ingress.class: alb
+# spec:
+#   rules:
+#     - host: canary-demo.seodae.tk
+#       http: 
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: canary-service
+#                 port:
+#                   number: 80
