@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-rollouts-demo
-        image: wotnek90/blue-green:green.v1 # tag is bule.v1 or green.v1
+        image: wotnek90/blue-green:bule.v1 # tag is bule.v1 or green.v1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
