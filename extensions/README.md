@@ -1,5 +1,3 @@
-# Extension controller 
-
 # Extension controller install
 
 - Argo CD 처음 설치 시  
@@ -15,7 +13,9 @@
     for i in $(ls) ; kubectl apply -f $i
     ```
 
-# rollout-extension install
+# rollout extension install
+Extension controller가 설치가 되면, rollou extension을 설치를 하여 Argo CD Console에서  
+보일 수 있게 합니다.
 
 ```
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/rollout-extension/v0.2.1/manifests/install.yaml
