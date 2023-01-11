@@ -30,7 +30,7 @@ apps/ 폴더 안에 있는 Application들이 실제 source code를 참고를 하
 ## 사용방법
 1. Argo CD Application **생성**을 클릭 
 2. **Edit as yaml**을 클릭
-3. **d-application.yaml** 내용을 복사를 하여 붙여 넣기 후 **SAVE** 클릭
+3. **app-of-apps-application.yaml** 내용을 복사를 하여 붙여 넣기 후 **SAVE** 클릭
 4. **Create** 클릭하여 Application을 생성
 5. 생성한 Application을 선택 후 **Sync** 클릭
 6. 확인
