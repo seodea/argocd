@@ -13,4 +13,4 @@ Argo CD 테스트를 위한 Code 공유 registry 입니다.
 자세한 내용은 해당 [Rollout Blue/Green README](Rollout/blue-green/README.md) 참고  
 
 ## Argo CD Rollout Extension
-자세한 내용은 해당 [Rollout Extension README](/extensions/README.md) 참고
+자세한 내용은 해당 [Rollout Extension README](/Extensions/README.md) 참고
