@@ -3,7 +3,7 @@ kind: Rollout # Rollout으로 생성
 metadata:
   name: canary-rollout
 spec:
-  replicas: 6
+  replicas: 4
   #revisionHistoryLimit: 2
   selector:
     matchLabels:
