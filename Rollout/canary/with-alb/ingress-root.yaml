@@ -13,16 +13,16 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-    - host: stable.seodae.tk
-      http: 
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: stable-service
-                port:
-                  number: 80
+    # - host: stable.seodae.tk
+    #   http: 
+    #     paths:
+    #       - path: /
+    #         pathType: Prefix
+    #         backend:
+    #           service:
+    #             name: stable-service
+    #             port:
+    #               number: 80
     - host: canary.seodae.tk
       http: 
         paths:
