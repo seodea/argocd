@@ -20,3 +20,4 @@ Extension controller가 설치가 되면, rollou extension을 설치를 하여 A
 ```
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/rollout-extension/v0.2.1/manifests/install.yaml
 ```
+
